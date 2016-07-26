@@ -143,6 +143,14 @@
     type: count
     drill_fields: detail*
   
+  - dimension: Lbs_Equivalent
+    sql: |
+      CASE WHEN 
+        ServiceCategoryID = 3 THEN CollectedUnits * 7.4
+        ELSE CollectedUnits
+      END
+        
+  
   - measure: total_collected_units
     type: sum
     sql: ${collected_units}
